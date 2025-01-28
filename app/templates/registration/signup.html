@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login and Sign Up Page</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-image: url("https://images.pexels.com/photos/7078666/pexels-photo-7078666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+        background-size: cover;
+      }
+      .card {
+        width: 400px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        background-blend-mode: overlay;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease-in-out;
+        padding: 20px 0px 0px 0px;
+        margin: 120px auto;
+      }
+      .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      button {
+        margin: 20px 0;
+        border-radius: 10px !important;
+      }
+      a:hover {
+        text-decoration: none !important;
+      }
+      a p:hover {
+        text-decoration: none !important;
+        color: plum !important;
+        font-size: 17px;
+        transition: 0.3s ease-in-out;
+      }
+      p {
+        text-align: center;
+        color: white;
+      }
+      #loginEmail,
+      #loginPassword {
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(5px);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        transition: background-color 0.3s ease-in-out;
+      }
+      ::placeholder {
+        color: white !important;
+      }
+      h4 {
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      hr {
+        border: none;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(5px);
+        color: white;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="justify-content-center">
+        <div class="card">
+          <div class="card-body text-center">
+            <img
+              src="./Images/SoftechLogo-removebg-preview.png"
+              alt="logo"
+              style="width: 200px; margin-bottom: 10px"
+            />
+            <h4 class="card-title text-center mb-4">Sign Up</h4>
+            <form id="signupForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Name"
+                  placeholder="Full Name"
+                />
+              </div>
+              <div
+                id="alertName"
+                class="alert alert-danger p-2 w-auto mx-auto d-none"
+              >
+                First letter must be capital
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="Email"
+                  placeholder="Email"
+                />
+              </div>
+              <div
+                id="alertEmail"
+                class="alert alert-danger p-2 w-auto mx-auto d-none"
+              >
+                Enter valid email address
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="Password"
+                  placeholder="Password"
+                />
+              </div>
+              <div
+                id="alertPassword"
+                class="alert alert-danger p-2 w-auto mx-auto d-none"
+              >
+                Enter valid password
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  placeholder="Confirm Password"
+                />
+              </div>
+              <div
+                id="alertConfirmPassword"
+                class="alert alert-danger p-2 w-auto mx-auto d-none"
+              >
+                Password does not match
+              </div>
+
+              <button id="signupBtn" class="btn btn-success btn-block">
+                Sign Up
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-auto mx-auto">
+      <table class="table table-dark table-hover text-center w-25 d-none">
+        <thead class="fw-bold">
+          <th>SN</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Confirm Password</th>
+          <th>Action</th>
+        </thead>
+        <tbody id="signupTable"></tbody>
+      </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="./JS/Signup.js"></script>
+  </body>
+</html>
