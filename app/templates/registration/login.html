@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="justify-content-center">
+        <div class="card">
+          <div class="card-body text-center">
+            <img
+              src="./Images/SoftechLogo-removebg-preview.png"
+              alt="logo"
+              style="width: 200px; margin-bottom: 10px"
+            />
+            <h4 class="card-title text-center mb-4">Login</h4>
+            <div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="loginEmail"
+                  placeholder="Email"
+                />
+              </div>
+              <div
+                id="alertEmail"
+                class="alert alert-danger p-2 w-auto mx-auto d-none"
+              >
+                Enter valid email address
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                  placeholder="Password"
+                />
+              </div>
+              <div
+                id="alertPassword"
+                class="alert alert-danger p-2 w-auto mx-auto d-none"
+              >
+                Enter valid password
+              </div>
+
+              <button class="btn btn-primary btn-block" id="loginBtn">
+                Login
+              </button>
+              <hr />
+              <a href="signup.html"
+                ><p style="color: aliceblue">
+                  Don't have an account? Sign Up
+                </p></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./JS/Login.js"></script>
+  </body>
+</html>
