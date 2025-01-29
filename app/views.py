@@ -22,3 +22,7 @@ def contactus_page(request):
 
     context={'form':form,'feedback':feedbacks}
     return render(request, 'app/contactus.html', context)
+
+def employee_page(request):
+    context = {}
+    return render(request, 'app/employees.html', context)
