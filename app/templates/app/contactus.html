@@ -59,7 +59,15 @@
                   <th>Action</th>
                </thead>
                <tbody id="contactTable">
-                  
+                  {% for f in feedback %}
+                  <tr>
+                     <td>{{f.emp_name}}</td>
+                     <td>{{f.email}}</td>
+                     <td>{{f.subjects}}</td>
+                     <td>{{f.message}}</td>
+                     <td>{{f.action_taken}}</td>
+                  </tr>
+                  {% endfor %}
                </tbody>
             </table>
          </div>
