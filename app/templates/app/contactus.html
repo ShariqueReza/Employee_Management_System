@@ -4,30 +4,31 @@
 {% block content %} 
       <section style="position: relative; z-index: 0;">
             <div style="position: relative; z-index: 1; width: 100%; height: 750px;">
-               <div class="bg-body py-5 h-80 text-center" id="contactbackground" style="position: absolute; z-index: 1; float: left;">
+               <form method="POST" class="bg-body py-5 h-80 text-center" id="contactbackground" style="position: absolute; z-index: 1; float: left;">
+                  {% csrf_token %}
                   <h2 class="fs-3 fw-bold mb-5">Get In Touch</h2>
 
-                  <input type="text" id="name" placeholder="Employee Name" class="form-control mb-2 w-75 mx-auto inputsize">
+                  {{form.emp_name}}
                   <div id="alertName" class="alert alert-danger p-2 w-75 mx-auto d-none">First letter must be capital</div>
 
-                  <input type="text" id="email" placeholder="Email Address" class="form-control mb-2 w-75 mx-auto inputsize">
+                  {{form.email}}
                   <div id="alertEmail" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid email address</div>
 
-                  <input type="text" id="subject" placeholder="Subject" class="form-control mb-2 w-75 mx-auto inputsize">
+                  {{form.subjects}}
                   <div id="alertSubject" class="alert alert-danger p-2 w-75 mx-auto d-none">Please enter a subject.</div>
 
-                  <textarea type="text"  id="message"  placeholder="Your Message" class="form-control mb-2 w-75 mx-auto inputsize"></textarea>
+                  {{form.message}}
                   <div id="alertMessage" class="alert alert-danger p-2 w-75 mx-auto d-none">Please enter a message.</div>
             
 
                   <div class="buttons w-75 mx-auto">
                      <div>
                         <div>
-                           <button class="btn btn-primary mt-5 p-2 justify-content-center" id="addBtn">Submit</button>
+                           <button class="btn btn-primary mt-5 p-2 justify-content-center" type="submit" id="addBtn">Submit</button>
                         </div>
                      </div>
                   </div>
-               </div>
+               </form>
 
                <div style="position: relative; z-index: 1;  width: 50%; height: 450px; float: right; margin: 110px 0;">
                   <img style="margin: 0 0 0 350px;" src="{% static 'images/mailicon.png' %}" alt="Mail">
