@@ -17,7 +17,7 @@ class FeedbackForm(forms.ModelForm):
                 'placeholder': 'Email Address',
                 'class': 'form-control mb-2 w-75 mx-auto inputsize'
             }),
-            'subject': forms.TextInput(attrs={
+            'subjects': forms.TextInput(attrs={
                 'id': 'subject',
                 'placeholder': 'Subject',
                 'class': 'form-control mb-2 w-75 mx-auto inputsize'
