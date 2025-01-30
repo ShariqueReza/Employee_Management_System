@@ -4,24 +4,11 @@
 {% block content %}
             <div class="bg-body py-5 text-center" id="formbackground">
                 <h2 class="fs-3 fw-bold text-decoration-underline mb-5">Add New Payroll</h2>
-                <select id="Ename" class="form-control mb-2 w-75 mx-auto">
-                <option value="">Select Employee</option>
                 
-                </select>
+                
                 <div id="alertName" class="alert alert-danger p-2 w-75 mx-auto d-none">Select Employee</div>
 
-                <select id="Erole" class="form-control mb-2 w-75 mx-auto">
-                    <option value="">Select Role</option>
-                    <option value="Software Engineer">Software Engineer</option>
-                    <option value="Full Stack Developer">Full Stack Developer</option>
-                    <option value="Product Manager">Product Manager</option>
-                    <option value="Data Scientist">Data Scientist</option>
-                    <option value="QA Engineer">QA Engineer</option>
-                    <option value="UX/UI Designer">UX/UI Designer</option>
-                    <option value="DevOps Engineer">DevOps Engineer</option>
-                    <option value="Technical Support">Technical Support</option>
-                    <option value="IT Administrator">IT Administrator</option>
-                </select>
+                
                 <div id="alertRole" class="alert alert-danger p-2 w-75 mx-auto d-none">Select a valid Role</div>
 
 
@@ -55,14 +42,12 @@
                 <h2 class="fs-3 fw-bold text-decoration-underline mb-2 mt-5">Payroll Details</h2>
                 <table class="table table-dark table-hover mt-4 mb-5 text-center w-75">
                     <thead  class="fw-bold">
-                            <th>SN</th>
                             <th>Employee</th>
                             <th>Role</th>
                             <th>Basic Salary</th>
                             <th>Allowances</th>
                             <th>Tax</th>
                             <th>Net Salary</th>
-                            <th colspan="2">Actions</th>
                     </thead>
                     <tbody id="payrollTable">
                         

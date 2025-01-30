@@ -36,6 +36,7 @@ def department_page(request):
     context = {'form':form,'department':departments}
     return render(request, 'app/departments.html', context)
 
+
 def payroll_page(request):
     context = {}
     return render(request, 'app/payroll.html', context)

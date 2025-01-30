@@ -1,5 +1,5 @@
 from django import forms
-from app.models import Departments,Employees
+from app.models import Departments,Employees,Payroll
 
 
 class DepartmentForm(forms.ModelForm):
@@ -70,3 +70,8 @@ class EmployeesForm(forms.ModelForm):
               }),
 
           }
+            
+class PayrollForm(forms.ModelForm):
+        class Meta:
+            model=Payroll
+            fields={'emp_name','role','basic_salary','mobile_number','tax','net_salary'}
