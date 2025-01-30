@@ -38,7 +38,7 @@ def department_page(request):
 
 
 def payroll_page(request):
-    payrolls=Departments.objects.all()
+    payrolls=Payroll.objects.all()
     form=PayrollForm()
     if request.method == 'POST':
         form = PayrollForm(request.POST)

@@ -50,7 +50,16 @@
                             <th>Net Salary</th>
                     </thead>
                     <tbody id="payrollTable">
-                        
+                        {% for pay in payroll  %}
+                        <tr>
+                          <td>{{pay.emp_name}}</td>
+                          <td>{{pay.role}}</td>
+                          <td>{{pay.basic_salary}}</td>
+                          <td>{{pay.allowance}}</td>
+                          <td>{{pay.tax}}</td>
+                          <td>{{pay.net_salary}}</td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
