@@ -5,23 +5,23 @@
             <div class="bg-body py-5 text-center" id="formbackground">
                 <h2 class="fs-3 fw-bold text-decoration-underline mb-5">Add New Payroll</h2>
                 
-                
+                {{form.emp_name}}
                 <div id="alertName" class="alert alert-danger p-2 w-75 mx-auto d-none">Select Employee</div>
 
-                
+                {{form.role}}
                 <div id="alertRole" class="alert alert-danger p-2 w-75 mx-auto d-none">Select a valid Role</div>
 
 
-                <input  id="BasicSalary" type="number"  placeholder="Basic Salary" class="form-control mb-2 w-75 mx-auto">
+                {{form.basic_salary}}
                 <div id="alertBasicSalary" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid Basic Salary with maximum of 8 digits and upto 2 decimal places</div>
 
-                <input  id="Allowance" type="number"  placeholder="Computer/Telephone/Cell Allowance" class="form-control mb-2 w-75 mx-auto">
+                {{form.allowance}}
                 <div id="alertAllowance" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid Allowance with maximum of 8 digits and upto 2 decimal places</div>
 
-                <input  id="Tax" type="number"  placeholder="Tax" class="form-control mb-2 w-75 mx-auto">
+                {{form.tax}}
                 <div id="alertTax" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid Tax with maximum of 8 digits and upto 2 decimal places</div>
 
-                <input  id="NetSalary" type="number" placeholder="Net Salary" class="form-control mb-2 w-75 mx-auto"  readonly>
+                {{form.net_salary}}
         
 
                 <div class="buttons w-75 mx-auto">
