@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from app.models import Departments,Employees,Payroll
-from app.forms import DepartmentForm,EmployeesForm
+from app.forms import DepartmentForm,EmployeesForm,PayrollForm
 
 
 
@@ -30,7 +30,7 @@ def department_page(request):
         form = DepartmentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/")
+            return redirect("/departments.html")
         else:
             form = DepartmentForm()
     context = {'form':form,'department':departments}
@@ -38,5 +38,14 @@ def department_page(request):
 
 
 def payroll_page(request):
-    context = {}
+    payrolls=Departments.objects.all()
+    form=PayrollForm()
+    if request.method == 'POST':
+        form = PayrollForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/payroll.html")
+        else:
+            form = PayrollForm()
+    context = {'form':form,'payroll':payrolls}
     return render(request, 'app/payroll.html', context)
