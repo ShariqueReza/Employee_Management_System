@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from app.models import Departments,Employees
+from app.models import Departments,Employees,Payroll
 from app.forms import DepartmentForm,EmployeesForm
 
 
@@ -35,3 +35,7 @@ def department_page(request):
             form = DepartmentForm()
     context = {'form':form,'department':departments}
     return render(request, 'app/departments.html', context)
+
+def payroll_page(request):
+    context = {}
+    return render(request, 'app/payroll.html', context)
