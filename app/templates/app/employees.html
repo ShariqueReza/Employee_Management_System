@@ -7,26 +7,26 @@
             {% csrf_token %}
             <h2 class="fs-3 fw-bold text-decoration-underline mb-5">Add New Employee</h2>
 
-            <input type="text" id="Eid" placeholder="Employee ID" class="form-control mb-2 w-75 mx-auto" >
+            {{form.emp_id}}
             <div id="alertEmpid" class="alert alert-danger p-2 w-75 mx-auto d-none">Alphanumeric characters and has a length between 5 and 10 characters.</div>
 
-            <input type="text" id="Ename" placeholder="Employee Name" class="form-control mb-2 w-75 mx-auto">
+            {{form.emp_name}}
             <div id="alertName" class="alert alert-danger p-2 w-75 mx-auto d-none">First letter must be capital</div>
 
-            <input type="number" id="Emobile" placeholder="Mobile number" class="form-control mb-2 w-75 mx-auto">
+            {{form.mobile_number}}
             <div id="alertMobile" class="alert alert-danger p-2 w-75 mx-auto d-none">Mobile number must be 10 digits</div>
 
-            <input type="text" id="Eemail" placeholder="Email Address" class="form-control mb-2 w-75 mx-auto">
+            {{form.email}}
             <div id="alertEmail" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid email address</div>
 
-            <textarea type="text"  id="Eadd"  placeholder="Address" class="form-control mb-2 w-75 mx-auto"></textarea>
+            {{form.address}}
 
-            <input type="text" id="department" placeholder="Department" class="form-control mb-2 w-75 mx-auto">
+            {{form.department_name}}
             <div id="alertDepartment" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid department name</div>
             
             <div id="alertDept" class="alert alert-danger p-2 w-75 mx-auto d-none">Select a valid Department</div>
 
-            <input type="text" id="role" placeholder="Role" class="form-control mb-2 w-75 mx-auto">
+            {{form.role}}
             <div id="alertRole" class="alert alert-danger p-2 w-75 mx-auto d-none">Select a valid Role</div>
       
 
@@ -37,7 +37,7 @@
                   </div>
                   <div class="col-6 text-end">
                      <button class="btn btn-danger mt-3 me-2 p-2" id="resetBtn" style="margin-left: 45%;">Reset</button>
-                     <button class="btn btn-primary mt-3 p-2" id="addBtn" style="float: right;">Add Employee</button>
+                     <button class="btn btn-primary mt-3 p-2" id="addBtn" type="submit" style="float: right;">Add Employee</button>
                   </div>
                </div>
             </div>
