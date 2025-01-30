@@ -4,26 +4,23 @@
 {% block content %} 
             <div class="bg-body py-5 text-center" id="formbackground">
                 <h2 class="fs-3 fw-bold text-decoration-underline mb-5">Add Department</h2>
-                <div class="form-group">
-                    <input id="newDept" type="text" placeholder="Department Name" class="form-control mb-2 w-75 mx-auto">
+                <form class="form-group" method="POST">
+                  {% csrf_token %}
+                    {{form.department_name}}
                     <div id="alertnewdept" class="alert alert-danger p-2 w-75 mx-auto d-none">First letter must be capital, Only Alphabets,Spaces and Parenthesis are allowed, has a length between 1 and 30 characters</div>
 
-                    <select id="deptStatus" class="form-control mb-2 w-75 mx-auto">
-                        <option value="">Department Status</option>
-                        <option value="active">Active</option>
-                        <option value="Inactive">Inactive</option>
-                    </select>
+                    {{form.department_status}}
                     <div id="alertDeptStatus"  class="alert alert-danger p-2 w-75 mx-auto d-none"> Select Department Status</div>
                     
                             
                     <div class="buttons w-75 mx-auto">
                         <div>
                             <div>
-                            <button class="btn btn-primary mt-3 p-2 justify-content-center" id="addDeptBtn">Add Department</button>
+                            <button class="btn btn-primary mt-3 p-2 justify-content-center" type="submit" id="addDeptBtn">Add Department</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                  </form>
             </div>
             <div class="w-auto mx-auto">
                 <h2 class="fs-3 fw-bold text-decoration-underline mb-2 mt-5">All Departments</h2>

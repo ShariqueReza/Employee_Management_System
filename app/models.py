@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 class Departments(models.Model):
       department_name = models.CharField(max_length=100, primary_key=True)
-      department_status = models.BooleanField()
+      department_status = models.CharField(max_length=100)
   
 class Employees(models.Model):
       emp_id = models.CharField(max_length=10, primary_key=True)
