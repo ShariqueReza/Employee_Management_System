@@ -1,4 +1,6 @@
 from django.shortcuts import render,redirect
+from app.models import Departments,Employees
+from app.forms import DepartmentForm
 
 
 
@@ -13,5 +15,14 @@ def employee_page(request):
     return render(request, 'app/employees.html', context)
 
 def department_page(request):
-    context = {}
+    departments=Departments.objects.all()
+    form=DepartmentForm()
+    if request.method == 'POST':
+        form = DepartmentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+        else:
+            form = DepartmentForm()
+    context = {'form':form,'department':departments}
     return render(request, 'app/departments.html', context)
