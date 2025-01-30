@@ -22,12 +22,51 @@ class DepartmentForm(forms.ModelForm):
             }
 
 class EmployeesForm(forms.ModelForm):
-        department_name = forms.CharField(widget=forms.TextInput(attrs={
-            'id': 'department', 
-            'placeholder': 'Department', 
-            'class': 'form-control mb-2 w-75 mx-auto'
-        }))
-    
         class Meta:
-            model = Employees
-            fields = '__all__'
+            model=Employees
+            fields={'emp_id','emp_name','mobile_number','email','address','department_name','role'}
+            widgets = {
+              'emp_id': forms.TextInput(attrs={
+                  'id': 'Eid',
+                  'type': 'text',
+                  'placeholder': 'Employee Id',
+                  'class': 'form-control mb-2 w-75 mx-auto'
+              }),
+              'emp_name': forms.TextInput(attrs={
+                  'id': 'Ename',
+                  'type': 'text',
+                  'placeholder': 'Employee name',
+                  'class': 'form-control mb-2 w-75 mx-auto'
+              }),
+              'mobile_number': forms.TextInput(attrs={
+                  'id': 'Emobile',
+                  'type': 'text',
+                  'placeholder': 'Mobile Number',
+                  'class': 'form-control mb-2 w-75 mx-auto'
+              }),
+              'email': forms.TextInput(attrs={
+                  'id': 'Email',
+                  'type': 'text',
+                  'placeholder': 'Email',
+                  'class': 'form-control mb-2 w-75 mx-auto'
+              }),
+              'address': forms.TextInput(attrs={
+                  'id': 'Eadd',
+                  'type': 'text',
+                  'placeholder': 'Address',
+                  'class': 'form-control mb-2 w-75 mx-auto'
+              }),
+              'department_name': forms.TextInput(attrs={
+                  'id': 'department',
+                  'type': 'text',
+                  'placeholder': 'Department Name',
+                  'class': 'form-control mb-2 w-75 mx-auto'
+              }),
+              'role': forms.TextInput(attrs={
+                  'id': 'role',
+                  'type': 'text',
+                  'placeholder': 'Role',
+                  'class': 'form-control mb-2 w-75 mx-auto'
+              }),
+
+          }

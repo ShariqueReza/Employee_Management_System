@@ -20,7 +20,7 @@ def employee_page(request):
             return redirect("/employees.html")
         else:
             form = EmployeesForm()
-    context = {}
+    context = {'form':form,'employee':employees}
     return render(request, 'app/employees.html', context)
 
 def department_page(request):

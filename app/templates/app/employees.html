@@ -3,7 +3,8 @@
 {% load static %}
 {% block content %} 
 
-         <div class="bg-body py-5 text-center" id="formbackground">
+         <form method="POST" class="bg-body py-5 text-center" id="formbackground">
+            {% csrf_token %}
             <h2 class="fs-3 fw-bold text-decoration-underline mb-5">Add New Employee</h2>
 
             <input type="text" id="Eid" placeholder="Employee ID" class="form-control mb-2 w-75 mx-auto" >
@@ -25,17 +26,7 @@
             
             <div id="alertDept" class="alert alert-danger p-2 w-75 mx-auto d-none">Select a valid Department</div>
 
-            <select id="Erole" class="form-control mb-2 w-75 mx-auto">
-               <option value="">Select Role</option>
-               <option value="Software Engineer">Frontend Engineer</option>
-               <option value="Full Stack Developer">Backend Engineer</option>
-               <option value="Data Scientist">HRs</option>
-               <option value="QA Engineer">QA Engineers</option>
-               <option value="UX/UI Designer">Managers</option>
-               <option value="DevOps Engineer">DevOps Engineer</option>
-               <option value="Technical Support">Technical Support</option>
-               <option value="IT Administrator">IT Administrator</option>
-            </select>
+            <input type="text" id="role" placeholder="Role" class="form-control mb-2 w-75 mx-auto">
             <div id="alertRole" class="alert alert-danger p-2 w-75 mx-auto d-none">Select a valid Role</div>
       
 
@@ -50,7 +41,7 @@
                   </div>
                </div>
             </div>
-         </div>
+         </form>
 
          <div class="w-auto mx-auto">
             <h2 class="fs-3 fw-bold text-decoration-underline mb-2 mt-5">All Employee Details</h2>
@@ -62,9 +53,20 @@
                   <th>Email</th>
                   <th>Address</th>
                   <th>Dept.</th>
+                  <th>Role.</th>
                </thead>
                <tbody id="myTable">
-                  
+                  {% for e in employee  %}
+                  <tr>
+                     <td>{{e.emp_id}}</td>
+                     <td>{{e.emp_name}}</td>
+                     <td>{{e.mobile_number}}</td>
+                     <td>{{e.email}}</td>
+                     <td>{{e.address}}</td>
+                     <td>{{e.department_name}}</td>
+                     <td>{{e.role}}</td>
+                  </tr>
+                  {% endfor %}
                </tbody>
             </table>
          </div>
