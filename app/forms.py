@@ -1,5 +1,5 @@
 from django import forms
-from app.models import Departments
+from app.models import Departments,Employees
 
 
 class DepartmentForm(forms.ModelForm):
@@ -21,4 +21,13 @@ class DepartmentForm(forms.ModelForm):
                 }),
             }
 
-
+class EmployeesForm(forms.ModelForm):
+        department_name = forms.CharField(widget=forms.TextInput(attrs={
+            'id': 'department', 
+            'placeholder': 'Department', 
+            'class': 'form-control mb-2 w-75 mx-auto'
+        }))
+    
+        class Meta:
+            model = Employees
+            fields = '__all__'
