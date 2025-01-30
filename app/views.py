@@ -11,3 +11,7 @@ def index_page(request):
 def employee_page(request):
     context = {}
     return render(request, 'app/employees.html', context)
+
+def department_page(request):
+    context = {}
+    return render(request, 'app/departments.html', context)
