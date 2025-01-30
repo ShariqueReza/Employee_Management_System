@@ -26,13 +26,16 @@
                 <h2 class="fs-3 fw-bold text-decoration-underline mb-2 mt-5">All Departments</h2>
                 <table class="table table-dark table-hover mt-4 mb-5 text-center w-75">
                    <thead class="fw-bold">
-                    <th>SN</th>
                     <th>Department</th>
                     <th>Status</th>
-                    <th>Action</th>
                    </thead>
                    <tbody id="DeptTable">
-                      
+                    {% for d in department %}
+                      <tr>
+                        <td>{{d.department_name}}</td>
+                        <td>{{d.department_status}}</td>
+                      </tr>
+                      {% endfor %}
                    </tbody>
                 </table>
              </div>
