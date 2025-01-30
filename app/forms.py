@@ -74,4 +74,4 @@ class EmployeesForm(forms.ModelForm):
 class PayrollForm(forms.ModelForm):
         class Meta:
             model=Payroll
-            fields={'emp_name','role','basic_salary','mobile_number','tax','net_salary'}
+            fields={'emp_name','role','basic_salary','tax','net_salary'}
