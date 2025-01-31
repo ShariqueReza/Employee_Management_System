@@ -72,6 +72,50 @@ class EmployeesForm(forms.ModelForm):
           }
             
 class PayrollForm(forms.ModelForm):
-        class Meta:
-            model=Payroll
-            fields={'emp_name','role','basic_salary','allowance','tax','net_salary'}
+    class Meta:
+        model = Payroll
+        fields = {'emp_name', 'role', 'basic_salary', 'allowance', 'tax', 'net_salary'}
+        widgets = {
+            'emp_name': forms.TextInput(attrs={
+                'id': 'empName',
+                'type': 'text',
+                'placeholder': 'Employee Name',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+            'role': forms.TextInput(attrs={
+                'id': 'empRole',
+                'type': 'text',
+                'placeholder': 'Role',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+            'basic_salary': forms.NumberInput(attrs={
+                'id': 'basicSalary',
+                'type': 'number',
+                'placeholder': 'Basic Salary',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+            'allowance': forms.NumberInput(attrs={
+                'id': 'allowance',
+                'type': 'number',
+                'placeholder': 'Allowance',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+            'tax': forms.NumberInput(attrs={
+                'id': 'tax',
+                'type': 'number',
+                'placeholder': 'Tax',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+            'net_salary': forms.NumberInput(attrs={
+                'id': 'netSalary',
+                'type': 'number',
+                'placeholder': 'Net Salary',
+                'class': 'form-control mb-2 w-75 mx-auto',
+
+            }),
+        }
+
+    
+   
+    
+   

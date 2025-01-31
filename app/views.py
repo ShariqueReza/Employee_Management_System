@@ -44,8 +44,9 @@ def payroll_page(request):
         form = PayrollForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/payroll.html")
+            return redirect("/payroll")
         else:
+            print(form.errors)
             form = PayrollForm()
     context = {'form':form,'payroll':payrolls}
     return render(request, 'app/payroll.html', context)

@@ -2,7 +2,8 @@
 {% block title %}Home{% endblock title %}
 {% load static %}
 {% block content %}
-            <div class="bg-body py-5 text-center" id="formbackground">
+            <form method="POST" class="bg-body py-5 text-center" id="formbackground">
+              {% csrf_token %}
                 <h2 class="fs-3 fw-bold text-decoration-underline mb-5">Add New Payroll</h2>
                 
                 {{form.emp_name}}
@@ -31,11 +32,11 @@
                     </div>
                     <div class="col-6 text-end">
                         <button class="btn btn-danger mt-3 me-2 p-2" id="resetBtn" style="margin-left: 45%;">Reset</button>
-                        <button class="btn btn-primary mt-3 p-2" id="addBtn" style="float: right;">Add Payroll</button>
+                        <button class="btn btn-primary mt-3 p-2" id="addBtn" type="submit" style="float: right;">Add Payroll</button>
                     </div>
                 </div>
                 </div>
-            </div>
+            </form>
 
 
             <div class="w-auto mx-auto">
