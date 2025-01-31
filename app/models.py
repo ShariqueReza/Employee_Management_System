@@ -7,7 +7,7 @@ class Departments(models.Model):
       department_status = models.CharField(max_length=100)
 
       def __str__(self):
-        return self.department_name
+        return str(self.department_name)
   
 class Employees(models.Model):
       emp_id = models.CharField(max_length=10, primary_key=True)
@@ -19,7 +19,7 @@ class Employees(models.Model):
       role = models.CharField(max_length=100)
 
       def __str__(self):
-        return self.emp_name
+        return str(self.emp_name)
 
 class Payroll(models.Model):
       emp_name = models.ForeignKey(Employees, on_delete=models.CASCADE)
@@ -28,4 +28,17 @@ class Payroll(models.Model):
       allowance = models.IntegerField(null=True)
       tax = models.DecimalField(max_digits=5, decimal_places=2)
       net_salary = models.DecimalField(max_digits=10, decimal_places=2)
+
+      def __str__(self):
+        return str(self.emp_name)
+      
+class Attendance(models.Model):
+      emp_id = models.ForeignKey(Employees, on_delete=models.CASCADE)
+      emp_name = models.CharField(max_length=100)
+      date = models.DateField()
+      time_in = models.TimeField()
+      time_out = models.TimeField()
+
+      def __str__(self):
+        return self.emp_name
 
