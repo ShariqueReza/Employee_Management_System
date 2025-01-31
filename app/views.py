@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from app.models import Departments,Employees,Payroll
+from app.models import Departments,Employees,Payroll,Attendance
 from app.forms import DepartmentForm,EmployeesForm,PayrollForm
 
 
@@ -61,5 +61,6 @@ def payroll_page(request):
 
 
 def attendance_page(request):
-    context = {}
+    attendance=Attendance.objects.all()
+    context = {'attendance':attendance}
     return render(request, 'app/attendance.html', context)

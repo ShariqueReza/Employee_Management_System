@@ -38,7 +38,8 @@ class Attendance(models.Model):
       date = models.DateField()
       time_in = models.CharField(max_length=20)
       time_out = models.CharField(max_length=20)
+      action = models.CharField(max_length=100,null=True,blank=True)
 
       def __str__(self):
-        return self.emp_id
+        return str(self.emp_name)
 
