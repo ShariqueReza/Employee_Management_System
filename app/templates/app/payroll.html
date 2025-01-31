@@ -2,41 +2,39 @@
 {% block title %}Home{% endblock title %}
 {% load static %}
 {% block content %}
-            <form method="POST" class="bg-body py-5 text-center" id="formbackground">
-              {% csrf_token %}
-                <h2 class="fs-3 fw-bold text-decoration-underline mb-5">Add New Payroll</h2>
-                
-                {{form.emp_name}}
-                <div id="alertName" class="alert alert-danger p-2 w-75 mx-auto d-none">Select Employee</div>
+<form method="POST" class="bg-body py-5 text-center" id="formbackground">
+    {% csrf_token %}
+    <h2 class="fs-3 fw-bold text-decoration-underline mb-5">Add New Payroll</h2>
+    
+    {{ form.emp_name.as_widget }}
+    <div id="alertName" class="alert alert-danger p-2 w-75 mx-auto d-none">Select Employee</div>
 
-                {{form.role}}
-                <div id="alertRole" class="alert alert-danger p-2 w-75 mx-auto d-none">Select a valid Role</div>
+    {{ form.role }}
+    <div id="alertRole" class="alert alert-danger p-2 w-75 mx-auto d-none">Select a valid Role</div>
 
+    {{ form.basic_salary }}
+    <div id="alertBasicSalary" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid Basic Salary with a maximum of 8 digits and up to 2 decimal places</div>
 
-                {{form.basic_salary}}
-                <div id="alertBasicSalary" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid Basic Salary with maximum of 8 digits and upto 2 decimal places</div>
+    {{ form.allowance }}
+    <div id="alertAllowance" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid Allowance with a maximum of 8 digits and up to 2 decimal places</div>
 
-                {{form.allowance}}
-                <div id="alertAllowance" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid Allowance with maximum of 8 digits and upto 2 decimal places</div>
+    {{ form.tax }}
+    <div id="alertTax" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid Tax with a maximum of 8 digits and up to 2 decimal places</div>
 
-                {{form.tax}}
-                <div id="alertTax" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid Tax with maximum of 8 digits and upto 2 decimal places</div>
+    {{ form.net_salary }}
 
-                {{form.net_salary}}
-        
-
-                <div class="buttons w-75 mx-auto">
-                <div class="row g-0">
-                    <div class="col-6 text-start">
-                        <button class="btn btn-primary mt-3 p-2" id="updateBtn" style="display: none;">Update Payroll Details</button>
-                    </div>
-                    <div class="col-6 text-end">
-                        <button class="btn btn-danger mt-3 me-2 p-2" id="resetBtn" style="margin-left: 45%;">Reset</button>
-                        <button class="btn btn-primary mt-3 p-2" id="addBtn" type="submit" style="float: right;">Add Payroll</button>
-                    </div>
-                </div>
-                </div>
-            </form>
+    <div class="buttons w-75 mx-auto">
+        <div class="row g-0">
+            <div class="col-6 text-start">
+                <button class="btn btn-primary mt-3 p-2" id="updateBtn" style="display: none;">Update Payroll Details</button>
+            </div>
+            <div class="col-6 text-end">
+                <button class="btn btn-danger mt-3 me-2 p-2" id="resetBtn" style="margin-left: 45%;">Reset</button>
+                <button class="btn btn-primary mt-3 p-2" id="addBtn" type="submit" style="float: right;">Add Payroll</button>
+            </div>
+        </div>
+    </div>
+</form>
 
 
             <div class="w-auto mx-auto">

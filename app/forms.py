@@ -72,16 +72,17 @@ class EmployeesForm(forms.ModelForm):
           }
             
 class PayrollForm(forms.ModelForm):
+    emp_name = forms.ModelChoiceField(queryset=Employees.objects.all(), widget=forms.Select(attrs={
+        'id': 'empName',
+        'class': 'form-control mb-2 w-75 mx-auto'
+        }),
+        empty_label="Select Employee"
+    )
+
     class Meta:
         model = Payroll
-        fields = {'emp_name', 'role', 'basic_salary', 'allowance', 'tax', 'net_salary'}
+        fields = ['emp_name', 'role', 'basic_salary', 'allowance', 'tax', 'net_salary']
         widgets = {
-            'emp_name': forms.TextInput(attrs={
-                'id': 'empName',
-                'type': 'text',
-                'placeholder': 'Employee Name',
-                'class': 'form-control mb-2 w-75 mx-auto'
-            }),
             'role': forms.TextInput(attrs={
                 'id': 'empRole',
                 'type': 'text',
@@ -110,11 +111,9 @@ class PayrollForm(forms.ModelForm):
                 'id': 'netSalary',
                 'type': 'number',
                 'placeholder': 'Net Salary',
-                'class': 'form-control mb-2 w-75 mx-auto',
-
+                'class': 'form-control mb-2 w-75 mx-auto'
             }),
         }
-
     
    
     

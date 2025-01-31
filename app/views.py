@@ -17,7 +17,7 @@ def employee_page(request):
         form = EmployeesForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/employees.html")
+            return redirect("/employee")
         else:
             form = EmployeesForm()
     context = {'form':form,'employee':employees}
@@ -30,7 +30,7 @@ def department_page(request):
         form = DepartmentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/departments.html")
+            return redirect("/department")
         else:
             form = DepartmentForm()
     context = {'form':form,'department':departments}
@@ -38,15 +38,27 @@ def department_page(request):
 
 
 def payroll_page(request):
-    payrolls=Payroll.objects.all()
-    form=PayrollForm()
+    payrolls = Payroll.objects.all()
+    form = PayrollForm()
+
+    # Debug: Print all employee names
+    employees = Employees.objects.all()
+    print("Employees available:", employees)
+
     if request.method == 'POST':
         form = PayrollForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/payroll")
+            print("Form is valid and data is saved.")
+            return redirect('/payroll')
         else:
-            print(form.errors)
-            form = PayrollForm()
-    context = {'form':form,'payroll':payrolls}
+            print("Form errors:", form.errors)
+
+    context = {'form': form, 'payroll': payrolls}
     return render(request, 'app/payroll.html', context)
+
+
+
+def Attendance(request):
+    context = {}
+    return render(request, 'app/index.html', context)
