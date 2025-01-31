@@ -1,5 +1,5 @@
 from django import forms
-from app.models import Departments,Employees,Payroll
+from app.models import Departments,Employees,Payroll,Attendance
 
 
 class DepartmentForm(forms.ModelForm):
@@ -115,6 +115,6 @@ class PayrollForm(forms.ModelForm):
             }),
         }
     
-   
+
     
    

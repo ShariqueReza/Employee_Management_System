@@ -33,12 +33,12 @@ class Payroll(models.Model):
         return str(self.emp_name)
 
 class Attendance(models.Model):
-      emp_id = models.ForeignKey(Employees, on_delete=models.CASCADE)
-      emp_name = models.CharField(max_length=100)
+      emp_name = models.ForeignKey(Employees, on_delete=models.CASCADE)
+      emp_id = models.CharField(max_length=100)
       date = models.DateField()
-      time_in = models.TimeField()
-      time_out = models.TimeField()
+      time_in = models.CharField(max_length=20)
+      time_out = models.CharField(max_length=20)
 
       def __str__(self):
-        return self.emp_name
+        return self.emp_id
 
