@@ -41,7 +41,7 @@ def payroll_page(request):
     payrolls = Payroll.objects.all()
     form = PayrollForm()
 
-    # Debug: Print all employee names
+    #For debug puspose printing all employee names
     employees = Employees.objects.all()
     print("Employees available:", employees)
 
@@ -52,6 +52,7 @@ def payroll_page(request):
             print("Form is valid and data is saved.")
             return redirect('/payroll')
         else:
+            form=PayrollForm()
             print("Form errors:", form.errors)
 
     context = {'form': form, 'payroll': payrolls}
@@ -59,6 +60,6 @@ def payroll_page(request):
 
 
 
-def Attendance(request):
+def attendance_page(request):
     context = {}
-    return render(request, 'app/index.html', context)
+    return render(request, 'app/attendance.html', context)
