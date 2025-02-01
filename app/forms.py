@@ -115,6 +115,38 @@ class PayrollForm(forms.ModelForm):
             }),
         }
     
-
-    
+class AttendanceForm(forms.ModelForm):
+    emp_id=forms.ModelChoiceField(queryset=Employees.objects.all(), widget=forms.Select(attrs={
+        'id': 'Eid',
+        'class': 'form-control mb-2 w-75 mx-auto'
+        }),
+        empty_label="Select Employee Id"
+    )
+    emp_name = forms.ModelChoiceField(queryset=Employees.objects.all(), widget=forms.Select(attrs={
+        'id': 'empName',
+        'class': 'form-control mb-2 w-75 mx-auto'
+        }),
+        empty_label="Select Employee"
+    )
+    fields = ['emp_id', 'emp_name', 'date', 'time_in', 'time_out']
+    widgets = {
+        'date': forms.TextInput(attrs={
+                'id': 'Edate',
+                'type': 'text',
+                'placeholder': 'Date',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+        'time_in': forms.TextInput(attrs={
+                'id': 'EtimeIn',
+                'type': 'text',
+                'placeholder': 'Entry Time',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+        'time_out': forms.TextInput(attrs={
+                'id': 'EtimeOut',
+                'type': 'text',
+                'placeholder': 'Exit Time',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+    }
    
