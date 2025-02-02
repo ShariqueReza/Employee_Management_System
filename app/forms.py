@@ -155,3 +155,42 @@ class AttendanceForm(forms.ModelForm):
             }),
         }
 
+class LeaveForm(forms.ModelForm):
+     emp_name = forms.ModelChoiceField(
+        queryset=Employees.objects.all(), 
+        widget=forms.Select(attrs={
+            'id': 'empName',
+            'class': 'form-control mb-2 w-75 mx-auto'
+        }),
+        empty_label="Select Employee"
+    )
+     
+     class Meta:
+        model = Leave
+        fields = ['emp_id', 'emp_name', 'from_date', 'from_date', 'reason']
+        widgets={
+            'emp_id': forms.TextInput(attrs={
+                'id': 'Eid',
+                'type': 'text',
+                'placeholder': 'Enter Employee Id',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+            'from_date': forms.DateInput(attrs={
+                'id': 'from',
+                'type': 'date', 
+                'placeholder': 'Enter From Date', 
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+            'to_date': forms.DateInput(attrs={
+                'id': 'to',
+                'type': 'date', 
+                'placeholder': 'Enter From Date', 
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+            'reason': forms.TextInput(attrs={
+                'id': 'reason',
+                'type': 'text',
+                'placeholder': 'Enter your reason',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+        }
