@@ -50,7 +50,6 @@
             <h2 class="fs-3 fw-bold text-decoration-underline mb-2 mt-5">Leave Entries</h2>
             <table class="table table-dark table-hover mt-4 mb-5 text-center w-75">
                <thead class="fw-bold">
-                <th>SN</th>
                 <th>EmpID</th>
                 <th>Name</th>
                 <th>From</th>
@@ -59,7 +58,15 @@
                 <th colspan="2">Action</th>
             </thead>
             <tbody id="LeaveTable">
-               
+               {% for l in leave %}
+               <tr>
+                  <td>{{l.emp_id}}</td>
+                  <td>{{l.emp_name}}</td>
+                  <td>{{l.from_date}}</td>
+                  <td>{{l.to_date}}</td>
+                  <td>{{l.reason}}</td>
+               </tr>
+               {% endfor %}
             </tbody>
          </table>
       </div>

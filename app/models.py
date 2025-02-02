@@ -50,3 +50,6 @@ class Leave(models.Model):
       to_date = models.DateField()
       reason = models.TextField()
 
+      def __str__(self):
+        return str(self.emp_name)
+

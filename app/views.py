@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from app.models import Departments,Employees,Payroll,Attendance
+from app.models import Departments,Employees,Payroll,Attendance,Leave
 from app.forms import DepartmentForm,EmployeesForm,PayrollForm,AttendanceForm
 
 
@@ -77,6 +77,7 @@ def attendance_page(request):
     return render(request, 'app/attendance.html', context)
 
 def leave_page(request):
-    context={}
+    leaves=Leave.objects.all()
+    context={'leave':leaves}
     return render(request, 'app/leave.html', context)
 
