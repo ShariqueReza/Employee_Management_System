@@ -2,44 +2,31 @@
 {% block title %}Home{% endblock title %}
 {% load static %}
 {% block content %}
-         <div class="bg-body py-5 justify-content-center" id="formbackground">
+         <form method="POST" class="bg-body py-5 justify-content-center" id="formbackground">
+            {% csrf_token %}
             <h2 class="fs-3 fw-bold text-decoration-underline mb-5">Add Leave</h2>
 
-            <select id="Ename" class="form-control mb-2 w-75 mx-auto">
-               <option value="">Select Employee</option>
-               
-            </select>
+           {{form.emp_name}}
             <div id="alertName" class="alert alert-danger p-2 w-75 mx-auto d-none">Select valid Employee Name</div>
 
-            <select id="Eid" class="form-control mb-2 w-75 mx-auto">
-               <option value="">Select Employee ID</option>
-               
-            </select>
+            {{form.emp_id}}
             <div id="alertEmpid" class="alert alert-danger p-2 w-75 mx-auto d-none">Select valid Employee ID</div>
 
-            <input type="date" id="from" class="form-control mb-2 w-75 mx-auto">
+            {{form.from_date}}
             <div id="alertFrom" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid time</div>
 
 
-            <input type="date" id="to" class="form-control mb-2 w-75 mx-auto">
+            {{form.to_date}}
             <div id="alertTo" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid time</div>
 
-            <input type="text" id="reason" placeholder="Reason" class="form-control mb-2 w-75 mx-auto">
+            {{form.reason}}
             <div id="alertReason" class="alert alert-danger p-2 w-75 mx-auto d-none">Reason is required and should not contain any special characters.</div>
       
 
-            <div class="buttons w-75 mx-auto">
-               <div>
-                  <div class="text-start">
-                     <button class="btn btn-primary mt-3 p-2" id="updateBtn" style="display: none;">Update Employee Details</button>
-                  </div>
-                  <div class="text-end">
-                     <button class="btn btn-danger mt-3 me-2 p-2" id="resetBtn" style="margin-left: 77%;">Reset</button>
-                     <button class="btn btn-primary mt-3 p-2" id="addBtn" style="float: right;">Add Leave</button>
-                  </div>
-               </div>
-            </div>
-         </div>
+            <div class="d-flex justify-content-end w-75 mx-auto">
+               <button class="btn btn-primary p-2"  id="addBtn" type="submit">Add Leave</button>
+           </div>
+         </form>
 
 
         <div class="w-auto mx-auto">

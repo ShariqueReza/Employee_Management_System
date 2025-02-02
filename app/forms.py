@@ -167,7 +167,7 @@ class LeaveForm(forms.ModelForm):
      
      class Meta:
         model = Leave
-        fields = ['emp_id', 'emp_name', 'from_date', 'from_date', 'reason']
+        fields = ['emp_id', 'emp_name', 'from_date', 'to_date', 'reason']
         widgets={
             'emp_id': forms.TextInput(attrs={
                 'id': 'Eid',
