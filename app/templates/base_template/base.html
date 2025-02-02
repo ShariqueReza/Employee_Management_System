@@ -63,8 +63,8 @@
                         <ul class="list-unstyled">  
                             <li><a href="{% url "index" %}">Home</a></li>
                             <li><a href="{% url "employee" %}">Employees</a></li>
-                            <li><a href="departments.html">Departments</a></li>
-                            <li><a href="payroll.html">Payroll</a></li>
+                            <li><a href="{% url "department" %}">Departments</a></li>
+                            <li><a href="{% url "payroll" %}">Payroll</a></li>
                               
                         </ul>  
                       </div>  
@@ -74,9 +74,9 @@
                         <h4>Quick Links</h4> 
                         <div class="underline2"></div> 
                         <ul class="list-unstyled">  
-                            <li><a href="attendance.html">Attendance</a></li>
-                            <li><a href="leave.html">Leave</a></li>  
-                            <li><a href="">Contact Us</a></li>  
+                            <li><a href="{% url "attendance" %}">Attendance</a></li>
+                            <li><a href="{% url "leave" %}">Leave</a></li>  
+                            <li><a href="{% url "contactus" %}">Contact Us</a></li>  
                         </ul>  
                       </div>  
                     </div>  
