@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from app.models import Departments,Employees,Payroll,Attendance,Leave
-from app.forms import DepartmentForm,EmployeesForm,PayrollForm,AttendanceForm
+from app.forms import DepartmentForm,EmployeesForm,PayrollForm,AttendanceForm,LeaveForm
 
 
 
@@ -78,6 +78,19 @@ def attendance_page(request):
 
 def leave_page(request):
     leaves=Leave.objects.all()
-    context={'leave':leaves}
+    form=LeaveForm()
+
+    if request.method =='POST':
+        form=LeaveForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print("Form is valid and data is saved.")
+            return redirect('/leave')
+        else:
+            form=LeaveForm()
+            print("Form errors:", form.errors)
+
+
+    context={'leave':leaves,'form':form}
     return render(request, 'app/leave.html', context)
 
