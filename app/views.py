@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from app.models import Departments,Employees,Payroll,Attendance,Leave
-from app.forms import DepartmentForm,EmployeesForm,PayrollForm,AttendanceForm,LeaveForm
+from app.models import Departments,Employees,Payroll,Attendance,Leave,Feedback
+from app.forms import DepartmentForm,EmployeesForm,PayrollForm,AttendanceForm,LeaveForm,FeedbackForm
 
 
 
@@ -95,5 +95,15 @@ def leave_page(request):
     return render(request, 'app/leave.html', context)
 
 def feedback_page(request):
-    context={}
+    feedbacks=Feedback.objects.all()[0:10]
+    form=FeedbackForm()
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/contactus")
+        else:
+            form = FeedbackForm()
+  
+    context={'form':form,'feedback':feedbacks}
     return render(request, 'app/contactus.html', context)
