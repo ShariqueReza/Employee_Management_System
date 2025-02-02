@@ -1,5 +1,5 @@
 from django import forms
-from app.models import Departments,Employees,Payroll,Attendance
+from app.models import Departments,Employees,Payroll,Attendance,Leave
 
 
 class DepartmentForm(forms.ModelForm):
@@ -141,16 +141,17 @@ class AttendanceForm(forms.ModelForm):
                 'placeholder': 'Enter Date', 
                 'class': 'form-control mb-2 w-75 mx-auto'
             }),
-            'time_in': forms.TimeInput(attrs={
+            'time_in': forms.TextInput(attrs={
                 'id': 'EtimeIn',
-                'type': 'time',
+                'type': 'text',
                 'placeholder': 'Enter Entry Time',
                 'class': 'form-control mb-2 w-75 mx-auto'
             }),
-            'time_out': forms.TimeInput(attrs={
+            'time_out': forms.TextInput(attrs={
                 'id': 'EtimeOut',
-                'type': 'time',
+                'type': 'text',
                 'placeholder': 'Enter Exit Time',
                 'class': 'form-control mb-2 w-75 mx-auto'
             }),
         }
+

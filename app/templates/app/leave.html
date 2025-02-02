@@ -5,29 +5,25 @@
          <div class="bg-body py-5 justify-content-center" id="formbackground">
             <h2 class="fs-3 fw-bold text-decoration-underline mb-5">Add Leave</h2>
 
-            <label for="Eid">Employee ID :</label>
-            <select id="Eid" class="form-control mb-2 w-75 mx-auto">
-               <option value="">Select Employee ID</option>
-               
-            </select>
-            <div id="alertEmpid" class="alert alert-danger p-2 w-75 mx-auto d-none">Select valid Employee ID</div>
-
-            <label for="Ename">Employee Name :</label>
             <select id="Ename" class="form-control mb-2 w-75 mx-auto">
                <option value="">Select Employee</option>
                
             </select>
             <div id="alertName" class="alert alert-danger p-2 w-75 mx-auto d-none">Select valid Employee Name</div>
 
-            <label for="from">From :</label>
+            <select id="Eid" class="form-control mb-2 w-75 mx-auto">
+               <option value="">Select Employee ID</option>
+               
+            </select>
+            <div id="alertEmpid" class="alert alert-danger p-2 w-75 mx-auto d-none">Select valid Employee ID</div>
+
             <input type="date" id="from" class="form-control mb-2 w-75 mx-auto">
             <div id="alertFrom" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid time</div>
 
-            <label for="to">To :</label>
+
             <input type="date" id="to" class="form-control mb-2 w-75 mx-auto">
             <div id="alertTo" class="alert alert-danger p-2 w-75 mx-auto d-none">Enter valid time</div>
 
-            <label for="reason">Reason :</label>
             <input type="text" id="reason" placeholder="Reason" class="form-control mb-2 w-75 mx-auto">
             <div id="alertReason" class="alert alert-danger p-2 w-75 mx-auto d-none">Reason is required and should not contain any special characters.</div>
       
