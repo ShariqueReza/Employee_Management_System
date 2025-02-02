@@ -116,37 +116,41 @@ class PayrollForm(forms.ModelForm):
         }
     
 class AttendanceForm(forms.ModelForm):
-    emp_id=forms.ModelChoiceField(queryset=Employees.objects.all(), widget=forms.Select(attrs={
-        'id': 'Eid',
-        'class': 'form-control mb-2 w-75 mx-auto'
-        }),
-        empty_label="Select Employee Id"
-    )
-    emp_name = forms.ModelChoiceField(queryset=Employees.objects.all(), widget=forms.Select(attrs={
-        'id': 'empName',
-        'class': 'form-control mb-2 w-75 mx-auto'
+    emp_name = forms.ModelChoiceField(
+        queryset=Employees.objects.all(), 
+        widget=forms.Select(attrs={
+            'id': 'empName',
+            'class': 'form-control mb-2 w-75 mx-auto'
         }),
         empty_label="Select Employee"
     )
-    fields = ['emp_id', 'emp_name', 'date', 'time_in', 'time_out']
-    widgets = {
-        'date': forms.TextInput(attrs={
+
+    class Meta:
+        model = Attendance
+        fields = ['emp_id', 'emp_name', 'date', 'time_in', 'time_out']
+        widgets = {
+            'emp_id': forms.TextInput(attrs={
+                'id': 'Eid',
+                'type': 'text',
+                'placeholder': 'Enter Employee Id',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+            'date': forms.DateInput(attrs={
                 'id': 'Edate',
-                'type': 'text',
-                'placeholder': 'Date',
+                'type': 'date', 
+                'placeholder': 'Enter Date', 
                 'class': 'form-control mb-2 w-75 mx-auto'
             }),
-        'time_in': forms.TextInput(attrs={
+            'time_in': forms.TimeInput(attrs={
                 'id': 'EtimeIn',
-                'type': 'text',
-                'placeholder': 'Entry Time',
+                'type': 'time',
+                'placeholder': 'Enter Entry Time',
                 'class': 'form-control mb-2 w-75 mx-auto'
             }),
-        'time_out': forms.TextInput(attrs={
+            'time_out': forms.TimeInput(attrs={
                 'id': 'EtimeOut',
-                'type': 'text',
-                'placeholder': 'Exit Time',
+                'type': 'time',
+                'placeholder': 'Enter Exit Time',
                 'class': 'form-control mb-2 w-75 mx-auto'
             }),
-    }
-   
+        }
