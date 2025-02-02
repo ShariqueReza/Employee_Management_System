@@ -75,3 +75,8 @@ def attendance_page(request):
             print("Form errors:", form.errors)
     context = {'attendance':attendance,'form':form}
     return render(request, 'app/attendance.html', context)
+
+def leave_page(request):
+    context={}
+    return render(request, 'app/leave.html', context)
+
