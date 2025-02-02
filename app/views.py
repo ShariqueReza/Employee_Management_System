@@ -94,3 +94,6 @@ def leave_page(request):
     context={'leave':leaves,'form':form}
     return render(request, 'app/leave.html', context)
 
+def feedback_page(request):
+    context={}
+    return render(request, 'app/contactus.html', context)

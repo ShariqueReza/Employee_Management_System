@@ -1,5 +1,5 @@
 from django import forms
-from app.models import Departments,Employees,Payroll,Attendance,Leave
+from app.models import Departments,Employees,Payroll,Attendance,Leave,Feedback
 
 
 class DepartmentForm(forms.ModelForm):
@@ -191,6 +191,38 @@ class LeaveForm(forms.ModelForm):
                 'id': 'reason',
                 'type': 'text',
                 'placeholder': 'Enter your reason',
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+        }
+
+class FeedbackForm(forms.ModelForm):
+    emp_name = forms.ModelChoiceField(
+        queryset=Employees.objects.all(), 
+        widget=forms.Select(attrs={
+            'id': 'empName',
+            'class': 'form-control mb-2 w-75 mx-auto'
+        }),
+        empty_label="Select Employee"
+    )
+    class Meta:
+        model = Feedback
+        fields = ['emp_name', 'email', 'subject', 'message']
+        widgets = {
+            'email': forms.EmailInput(attrs={
+                'id': 'email',
+                'type': 'email', 
+                'placeholder': 'Enter your email', 
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+            'subject': forms.TextInput(attrs={
+                'id': 'subject',
+                'type': 'text', 
+                'placeholder': 'Enter your subject', 
+                'class': 'form-control mb-2 w-75 mx-auto'
+            }),
+            'message': forms.Textarea(attrs={
+                'id': 'message',
+                'placeholder': 'Enter your message',
                 'class': 'form-control mb-2 w-75 mx-auto'
             }),
         }

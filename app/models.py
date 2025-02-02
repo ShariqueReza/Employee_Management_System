@@ -57,8 +57,9 @@ class Leave(models.Model):
 class Feedback(models.Model):
       emp_name = models.ForeignKey(Employees, on_delete=models.CASCADE)
       email = models.EmailField()
-      address = models.TextField()
+      subject = models.CharField(max_length=100,null=True,blank=True)
       message = models.TextField()
+      action =models.TextField(blank=True)
 
       def __str__(self):
         return str(self.emp_name)

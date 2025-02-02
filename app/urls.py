@@ -9,4 +9,5 @@ urlpatterns = [
     path('payroll', views.payroll_page,name="payroll"),
     path('attendance', views.attendance_page, name="attendance"),
     path('leave', views.leave_page, name="leave"),
+    path('contactus', views.feedback_page, name="contactus"),
 ]
