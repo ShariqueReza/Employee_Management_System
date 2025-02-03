@@ -10,4 +10,5 @@ urlpatterns = [
     path('attendance', views.attendance_page, name="attendance"),
     path('leave', views.leave_page, name="leave"),
     path('contactus', views.feedback_page, name="contactus"),
+    path('accounts/register/', views.register, name='register'),
 ]

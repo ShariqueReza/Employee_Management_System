@@ -107,3 +107,7 @@ def feedback_page(request):
   
     context={'form':form,'feedback':feedbacks}
     return render(request, 'app/contactus.html', context)
+
+def register(request):
+    context={}
+    return render(request, 'registration/signup.html', context)
