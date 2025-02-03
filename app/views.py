@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from app.models import Departments,Employees,Payroll,Attendance,Leave,Feedback
 from app.forms import DepartmentForm,EmployeesForm,PayrollForm,AttendanceForm,LeaveForm,FeedbackForm,NewUserForm
+from django.contrib.auth import login
 
 
 
@@ -110,5 +111,13 @@ def feedback_page(request):
 
 def register(request):
     form=NewUserForm()
+
+    if request.method == "POST":
+        form=NewUserForm(request.POST)
+        if form.is_valid():
+            user=form.save()
+            login(request, user)
+            return redirect("/")
+        
     context={'form':form}
-    return render(request, 'registration/signup.html', context)
+    return render(request, 'registration/signup.html',context)
