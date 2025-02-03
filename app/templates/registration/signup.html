@@ -1,12 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Login and Sign Up Page</title>
-    <link rel="stylesheet" href="CSS/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'app/CSS_files/login.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
@@ -14,97 +15,72 @@
         <div class="card">
           <div class="card-body text-center">
             <img
-              src="./Images/SoftechLogo-removebg-preview.png"
+              src="{% static 'images/SoftechLogo-removebg-preview.png' %}"
               alt="logo"
               style="width: 200px; margin-bottom: 10px"
             />
             <h4 class="card-title text-center mb-4">Sign Up</h4>
-            <form id="signupForm">
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="Name"
-                  placeholder="Full Name"
-                />
+            <form id="signupForm" method="POST" class="form">
+              {% csrf_token %}
+              {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                <div class="field-error">
+                    <p>{{error}}</p>
+                </div>
+                {% endfor %}
+              {% endif %}
+              <div class="inputs">
+                <div>
+                  <div class="form-group">
+                    {{form.username}}
+                  </div>
+                  {% if form.username.errors %}
+                  <div class="field-error">
+                    <p>{{form.username.errors.as_text}}</p>
+                  </div>
+                  {% endif %}
+                </div>
+                <div>
+                  <div class="form-group">
+                    {{form.email}}
+                  </div>
+                  {% if form.email.errors %}
+                  <div class="field-error">
+                    <p>{{form.email.errors.as_text}}</p>
+                  </div>
+                  {% endif %}
+                </div>
+                <div>
+                  <div class="form-group">
+                    {{form.password1}}
+                  </div>
+                  {% if form.password.errors %}
+                  <div class="field-error">
+                    <p>{{form.password.errors.as_text}}</p>
+                  </div>
+                  {% endif %}
+                </div>
+                <div>
+                  <div class="form-group">
+                    {{form.password2}}
+                  </div>
+                  {% if form.password2.errors %}
+                  <div class="field-error">
+                    <p>{{form.password2.errors.as_text}}</p>
+                  </div>
+                  {% endif %}
+                </div>
               </div>
-              <div
-                id="alertName"
-                class="alert alert-danger p-2 w-auto mx-auto d-none"
-              >
-                First letter must be capital
-              </div>
-
-              <div class="form-group">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="Email"
-                  placeholder="Email"
-                />
-              </div>
-              <div
-                id="alertEmail"
-                class="alert alert-danger p-2 w-auto mx-auto d-none"
-              >
-                Enter valid email address
-              </div>
-
-              <div class="form-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="Password"
-                  placeholder="Password"
-                />
-              </div>
-              <div
-                id="alertPassword"
-                class="alert alert-danger p-2 w-auto mx-auto d-none"
-              >
-                Enter valid password
-              </div>
-
-              <div class="form-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="confirmPassword"
-                  placeholder="Confirm Password"
-                />
-              </div>
-              <div
-                id="alertConfirmPassword"
-                class="alert alert-danger p-2 w-auto mx-auto d-none"
-              >
-                Password does not match
-              </div>
-
-              <button id="signupBtn" class="btn btn-success btn-block">
-                Sign Up
-              </button>
+            
+              <button type="submit" class="btn btn-primary">Register</button>
             </form>
+            
           </div>
         </div>
       </div>
     </div>
-
-    <div class="w-auto mx-auto">
-      <table class="table table-dark table-hover text-center w-25 d-none">
-        <thead class="fw-bold">
-          <th>SN</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Password</th>
-          <th>Confirm Password</th>
-          <th>Action</th>
-        </thead>
-        <tbody id="signupTable"></tbody>
-      </table>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script src="./JS/Signup.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   </body>
 </html>

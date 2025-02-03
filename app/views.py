@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from app.models import Departments,Employees,Payroll,Attendance,Leave,Feedback
-from app.forms import DepartmentForm,EmployeesForm,PayrollForm,AttendanceForm,LeaveForm,FeedbackForm
+from app.forms import DepartmentForm,EmployeesForm,PayrollForm,AttendanceForm,LeaveForm,FeedbackForm,NewUserForm
 
 
 
@@ -109,5 +109,6 @@ def feedback_page(request):
     return render(request, 'app/contactus.html', context)
 
 def register(request):
-    context={}
+    form=NewUserForm()
+    context={'form':form}
     return render(request, 'registration/signup.html', context)

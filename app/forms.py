@@ -1,5 +1,7 @@
 from django import forms
 from app.models import Departments,Employees,Payroll,Attendance,Leave,Feedback
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
 class DepartmentForm(forms.ModelForm):
@@ -226,3 +228,36 @@ class FeedbackForm(forms.ModelForm):
                 'class': 'form-control mb-2 w-75 mx-auto'
             }),
         }
+
+
+class NewUserForm(UserCreationForm):
+    class Meta:
+        model=User
+        fields=('username','email','password1','password2')
+    def __init__(self,*args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({'placeholder': 'Type your username....','class': 'form-control mb-2 custom-input'})
+        self.fields['email'].widget.attrs.update({'placeholder': 'Type your email....','class': 'form-control mb-2 custom-input'})
+        self.fields['password1'].widget.attrs.update({'placeholder': 'Type your password....','class': 'form-control mb-2 custom-input'})
+        self.fields['password2'].widget.attrs.update({'placeholder': 'Repeat your password....','class': 'form-control mb-2 custom-input'})
+    
+    def clean_username(self):
+        username=self.cleaned_data['username'].lower()
+        new=User.objects.filter(username=username)
+        if new.count():
+            raise forms.ValidationError("user already exist")
+        return username
+    
+    def clean_email(self):
+        email=self.cleaned_data['email'].lower()
+        new=User.objects.filter(email=email)
+        if new.count():
+            raise forms.ValidationError("Email already exist")
+        return email
+    
+    def clean_password2(self):
+        password1=self.cleaned_data['password1']
+        password2=self.cleaned_data['password2']
+        if password1 and password2 and password1!=password2:
+            raise forms.ValidationError("password don't match")
+        return password2
