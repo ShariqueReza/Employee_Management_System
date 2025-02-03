@@ -14,53 +14,45 @@
       <div class="justify-content-center">
         <div class="card">
           <div class="card-body text-center">
-            <img
-              src="{% static 'images/SoftechLogo-removebg-preview.png' %}"
-              alt="logo"
-              style="width: 200px; margin-bottom: 10px"
-            />
+            <img src="{% static 'images/SoftechLogo-removebg-preview.png' %}" alt="logo" style="width: 200px; margin-bottom: 10px" />
             <h4 class="card-title text-center mb-4">Login</h4>
-            <div class="form-group">
+            <form action="{% url 'login' %}" method="post" class="form">
+              {% csrf_token %}
+              {% if form.non_field_errors %}
+              {% for error in form.non_field_errors %}
+              <div class="field-error">
+                <p>{{error}}</p>
+              </div>
+              {% endfor %}
+              {% endif %}
+              <div class="inputs">
+                <div class="form-group">
+                  <div>
+                    {{form.username}}
+                  </div>
+                  <div id="alertEmail" class="alert alert-danger p-2 w-auto mx-auto d-none">
+                    Enter valid username
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div>
+                    {{form.password}}
+                  </div>
+                  <div id="alertPassword" class="alert alert-danger p-2 w-auto mx-auto d-none">
+                    Enter valid password
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-block mt-3" type="submit" id="loginBtn">Login</button>
               <div>
-                <input type="text" class="form-control mb-2" id="loginEmail" placeholder="Email"/>
+                <a href="signup.html"><p style="color: aliceblue">Don't have an account? Sign Up</p></a>
               </div>
-              <div
-                id="alertEmail"
-                class="alert alert-danger p-2 w-auto mx-auto d-none"
-              >
-                Enter valid email address
-              </div>
-
-              <div>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="loginPassword"
-                  placeholder="Password"
-                />
-              </div>
-              <div
-                id="alertPassword"
-                class="alert alert-danger p-2 w-auto mx-auto d-none"
-              >
-                Enter valid password
-              </div>
-
-              <button class="btn btn-primary btn-block mt-3" id="loginBtn">
-                Login
-              </button>
-              <hr />
-              <a href="signup.html"
-                ><p style="color: aliceblue">
-                  Don't have an account? Sign Up
-                </p></a
-              >
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   </body>
