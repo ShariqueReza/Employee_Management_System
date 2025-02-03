@@ -20,7 +20,7 @@ body {
   transition: box-shadow 0.3s ease-in-out;
   padding: 20px 0px 0px 0px;
   margin: 120px auto;
-  width: 400px;  /* Reduced the width by 50% */
+  width: 400px;  
 }
 
 .card:hover {

@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="{% static 'app/CSS_files/login.css' %}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   </head>
@@ -14,7 +15,7 @@
         <div class="card">
           <div class="card-body text-center">
             <img
-              src="./Images/SoftechLogo-removebg-preview.png"
+              src="{% static 'images/SoftechLogo-removebg-preview.png' %}"
               alt="logo"
               style="width: 200px; margin-bottom: 10px"
             />
@@ -62,6 +63,5 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="./JS/Login.js"></script>
   </body>
 </html>
