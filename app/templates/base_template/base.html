@@ -17,6 +17,7 @@
                     <div>
                       <nav class="navbar justify-content-center" style="margin-left:270px;">
                         <ul style="display: flex; justify-content: space-between; width: 100%;">
+                            {% if user.is_authenticated %}
                             <div style="display: flex;">
                                 <li><a href="{% url 'index' %}">Home</a></li>
                                 <li><a href="{% url 'employee' %}">Employees</a></li>
@@ -26,6 +27,17 @@
                                 <li><a href="{% url 'leave' %}">Leave</a></li>
                                 <li><a href="{% url 'contactus' %}">Contact Us</a></li>
                             </div>
+                            {% else %}
+                            <div style="display: flex;">
+                              <li><a href="{% url 'login' %}">Home</a></li>
+                              <li><a href="{% url 'login' %}">Employees</a></li>
+                              <li><a href="{% url 'login' %}">Departments</a></li>
+                              <li><a href="{% url 'login' %}">Payroll</a></li>
+                              <li><a href="{% url 'login' %}">Attendance</a></li>
+                              <li><a href="{% url 'login' %}">Leave</a></li>
+                              <li><a href="{% url 'login' %}">Contact Us</a></li>
+                          </div>
+                          {% endif %}
                             {% if user.is_authenticated %}
                             <form method="POST" action="{% url 'logout' %}" style="display: flex;">
                               {% csrf_token %} 
